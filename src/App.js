@@ -4,7 +4,7 @@ const axios = require('axios').default;
 
 class App extends Component{
   getVideos(){
-   console.log('HOLA');
+   console.log('PIKILAO');
   }
   render(){
   return(<h1>{this.getVideos()}</h1>)
