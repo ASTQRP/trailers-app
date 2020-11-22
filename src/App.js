@@ -4,8 +4,7 @@ const axios = require('axios').default;
 
 class App extends Component{
   getVideos(){
-    axios.get('https://jsonplaceholder.typicode.com/todos/1')
-         .then(response => console.log(response.data))
+   console.log('HOLA');
   }
   render(){
   return(<h1>{this.getVideos()}</h1>)
