@@ -11,8 +11,6 @@ class App extends Component{
   return(
   <div>
     <NavbarComponent></NavbarComponent>
-    <h1>Pronto empezaremos a programar!</h1>
-      <Button color='primary'>CLik</Button>
   </div>
   )
   }
