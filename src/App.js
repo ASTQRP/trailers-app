@@ -1,5 +1,5 @@
 import React,{ Component  } from "react";
-import './App.css';
+import { Button } from 'reactstrap';
 const axios = require('axios').default; 
 
 class App extends Component{
@@ -7,7 +7,7 @@ class App extends Component{
    console.log('tango hambre');
   }
   render(){
-  return(<h1>{this.getVideos()}</h1>)
+  return(<Button color="primary">CLik</Button>)
   }
 }
 
