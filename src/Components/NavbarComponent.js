@@ -38,10 +38,10 @@ const NavbarComponent = (props) => {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  Option 1
+                  Terror
                 </DropdownItem>
                 <DropdownItem>
-                  Option 2
+                 Comedia
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
