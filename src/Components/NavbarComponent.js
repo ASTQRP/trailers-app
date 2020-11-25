@@ -1,16 +1,9 @@
 import React, { useState } from "react";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
+import
+{Navbar,
   Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
+  Form,
+  FormControl,
   Button,
 } from "react-bootstrap";
 
@@ -18,36 +11,20 @@ const NavbarComponent = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   return (
-    <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Trailers</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="Extrenos">Estrenos</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                Clascos
-              </NavLink>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Categorias
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>Terror</DropdownItem>
-                <DropdownItem>Comedia</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Suspenso</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </Nav>
-          <Button color="link">Login</Button>
-        </Collapse>
-      </Navbar>
-    </div>
+    <>
+     <Navbar bg="dark" variant="dark">
+    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href="#home">Home</Nav.Link>
+      <Nav.Link href="#features">Features</Nav.Link>
+      <Nav.Link href="#pricing">Pricing</Nav.Link>
+    </Nav>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="outline-info">Search</Button>
+    </Form>
+  </Navbar>
+    </>
   );
 };
 
