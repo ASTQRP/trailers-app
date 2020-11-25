@@ -8,17 +8,20 @@ import {
   CardSubtitle,
   Button,
   Container,
+  Col,
+  Row
 } from "reactstrap";
 export default function MainContainer(props) {
   const items = props.trailers.map((item) => {
     return (
-      <div key={item.id}>
+     <div  key={item.id}>
+       <Row>
+         <Col md={4}>
         <Card>
           <CardImg
             top
             width="100%"
             src={item.previewURL}
-            alt="Card image cap"
           />
           <CardBody>
             <CardTitle tag="h5">{item.title}</CardTitle>
@@ -35,7 +38,11 @@ export default function MainContainer(props) {
             </Button>
           </CardBody>
         </Card>
+        </Col>
+        </Row>
+        
       </div>
+     
     );
   });
   return (
