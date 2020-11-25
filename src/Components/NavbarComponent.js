@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Collapse,
   Navbar,
@@ -11,14 +11,12 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText
-} from 'reactstrap';
+  NavbarText,
+} from "reactstrap";
 
 const NavbarComponent = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
-
   return (
     <div>
       <Navbar color="light" light expand="md">
@@ -30,23 +28,19 @@ const NavbarComponent = (props) => {
               <NavLink href="Extrenos">Estrenos</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">Clascos</NavLink>
+              <NavLink href="https://github.com/reactstrap/reactstrap">
+                Clascos
+              </NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 Categorias
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>
-                  Terror
-                </DropdownItem>
-                <DropdownItem>
-                 Comedia
-                </DropdownItem>
+                <DropdownItem>Terror</DropdownItem>
+                <DropdownItem>Comedia</DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
+                <DropdownItem>Suspenso</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
@@ -55,6 +49,6 @@ const NavbarComponent = (props) => {
       </Navbar>
     </div>
   );
-}
+};
 
 export default NavbarComponent;
