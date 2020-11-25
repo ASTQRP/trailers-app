@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PizarraComponent from "./Components/PizarraComponent";
+
 const axios = require("axios").default;
 
 class App extends Component {
