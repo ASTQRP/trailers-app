@@ -11,9 +11,8 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText,
   Button,
-} from "reactstrap";
+} from "react-bootstrap";
 
 const NavbarComponent = (props) => {
   const [isOpen, setIsOpen] = useState(false);
