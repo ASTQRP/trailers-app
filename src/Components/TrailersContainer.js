@@ -1,46 +1,28 @@
 import React from "react";
 import {
   Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
   Button,
-  Container,
-  Col,
-  Row,
-} from "reactstrap";
+  Container
+} from "react-bootstrap";
 export default function MainContainer(props) {
   const items = props.trailers.map((item) => {
     return (
-      <Container key={item.id}>
-        <Row>
-          <Col
-            xs={{ size: "flex", push: 2, pull: 2, offset: 2 }}
-            sm={{ size: "flex", push: 2, pull: 2, offset: 2 }}
-            md={{ size: "flex", push: 2, pull: 2, offset: 2 }}
-          >
-            <Card>
-              <CardImg top width="100%" src={item.previewURL} />
-              <CardBody>
-                <CardTitle tag="h5">{item.title}</CardTitle>
-                <CardSubtitle tag="h6" className="mb-2 text-muted">
-                  {item.year}
-                </CardSubtitle>
-                <CardText>{item.description}</CardText>
-                <Button
-                  onClick={() => {
-                    console.log(item.url);
-                  }}
-                >
-                  Ver trailer
-                </Button>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+      <div key={item.id}>
+      <Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src= {item.previewURL}/>
+  <Card.Body>
+    <Card.Title>{item.title}</Card.Title>
+    <Card.Text>
+    {item.description}
+    </Card.Text>
+    <Button variant="primary" 
+    onClick={() => {
+      console.log(item.url);
+    }}>
+      Go somewhere</Button>
+  </Card.Body>
+</Card>
+</div>
     );
   });
   return (
