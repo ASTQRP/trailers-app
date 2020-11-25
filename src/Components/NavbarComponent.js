@@ -12,6 +12,7 @@ import {
   DropdownMenu,
   DropdownItem,
   NavbarText,
+  Button,
 } from "reactstrap";
 
 const NavbarComponent = (props) => {
@@ -44,7 +45,7 @@ const NavbarComponent = (props) => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText>TRAILERS</NavbarText>
+          <Button color="link">Login</Button>
         </Collapse>
       </Navbar>
     </div>
