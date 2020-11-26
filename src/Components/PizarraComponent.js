@@ -1,15 +1,13 @@
 import React from "react";
 import NavbarComponent from "./NavbarComponent";
 import MainMovie from "./MainMovieComponent";
-//import MainContainer from "./TrailersContainer";
-//import PaginationBottom from "./PaginationComponent";
+import TrailersContainer from "./TrailersContainer";
 export default function PizarraComponent(props) {
   return (
     <div>
       <NavbarComponent />
       <MainMovie />
-      {/* <MainContainer trailers={props.trailer} />*/}
-      {/*<PaginationBottom />*/}
+      <TrailersContainer trailerArray={props.trailer} />
     </div>
   );
 }

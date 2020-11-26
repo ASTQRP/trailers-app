@@ -1,33 +1,43 @@
 import React from "react";
 import {
-  Card,
-  Button,
-  Container
-} from "react-bootstrap";
-export default function MainContainer(props) {
-  const items = props.trailers.map((item) => {
+  MDBBtn,
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBCardTitle,
+  MDBCardText,
+  MDBCol,
+  MDBContainer,
+} from "mdbreact";
+
+export default function TrailersContainer(props) {
+  const cards = props.trailerArray.map((trailer) => {
     return (
-      <div key={item.id}>
-      <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src= {item.previewURL}/>
-  <Card.Body>
-    <Card.Title>{item.title}</Card.Title>
-    <Card.Text>
-    {item.description}
-    </Card.Text>
-    <Button variant="primary" 
-    onClick={() => {
-      console.log(item.url);
-    }}>
-      Go somewhere</Button>
-  </Card.Body>
-</Card>
-</div>
+      <MDBCol className="p-2">
+        <MDBCard style={{ width: "22rem" }}>
+          <MDBCardImage
+            className="img-fluid"
+            src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+            waves
+          />
+          <MDBCardBody>
+            <MDBCardTitle>{trailer.id}</MDBCardTitle>
+            <MDBCardText>
+              Some quick example text to build on the card title and make up the
+              bulk of the card&apos;s content.
+            </MDBCardText>
+            <MDBBtn href="#">MDBBtn</MDBBtn>
+          </MDBCardBody>
+        </MDBCard>
+      </MDBCol>
     );
   });
+
   return (
-    <Container>
-      <div className="trailers-container">{items}</div>
-    </Container>
+    <MDBContainer>
+      <div className="d-flex pt-5 flex-wrap flex-row justify-content-around">
+        {cards}
+      </div>{" "}
+    </MDBContainer>
   );
 }
