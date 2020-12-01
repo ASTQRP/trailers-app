@@ -11,6 +11,7 @@ import {
 } from "mdbreact";
 
 export default function TrailersContainer(props) {
+  console.log(props.trailerArray);
   const cards = props.trailerArray.map((trailer) => {
     return (
       <MDBCol className="p-2">
@@ -21,11 +22,8 @@ export default function TrailersContainer(props) {
             waves
           />
           <MDBCardBody>
-            <MDBCardTitle>{trailer.id}</MDBCardTitle>
-            <MDBCardText>
-              Some quick example text to build on the card title and make up the
-              bulk of the card&apos;s content.
-            </MDBCardText>
+            <MDBCardTitle>{`ID: ${trailer.id}`}</MDBCardTitle>
+            <MDBCardText>{trailer.description}</MDBCardText>
             <MDBBtn href="#">MDBBtn</MDBBtn>
           </MDBCardBody>
         </MDBCard>

@@ -33,7 +33,7 @@ const CarouselPage = () => {
 
   const cItems = items.map((item) => {
     return (
-      <MDBCarouselItem itemId={item.id}>
+      <MDBCarouselItem key={item.id} itemId={item.id}>
         <MDBView>
           <img className="d-block w-100" src={item.src} alt={item.altText} />
           <MDBMask overlay="black-light" />
