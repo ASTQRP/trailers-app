@@ -7,12 +7,13 @@ import {
   MDBNavLink,
   MDBNavbarToggler,
   MDBCollapse,
-  MDBFormInline,
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
 } from "mdbreact";
+
+import Login from "./LoginComponent";
 import { BrowserRouter as Router } from "react-router-dom";
 
 class NavbarComponent extends Component {
@@ -63,7 +64,7 @@ class NavbarComponent extends Component {
             </MDBNavbarNav>
             <MDBNavbarNav right>
               <MDBNavItem>
-                <MDBNavLink to="#!">Login</MDBNavLink>
+                <MDBNavLink to="#"></MDBNavLink>
               </MDBNavItem>
             </MDBNavbarNav>
           </MDBCollapse>
