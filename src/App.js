@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import CarouselPage from "./Components/MainMovieComponent";
 import NavbarComponent from "./Components/NavbarComponent";
 import TrailersContainer from "./Components/TrailersContainer";
+import Home from "./Components/HomeComponent";
+import Login from "./Components/LoginComponent";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 const axios = require("axios").default;
 
@@ -20,19 +22,12 @@ class App extends Component {
   render() {
     return (
       <div className="main-container">
-        <NavbarComponent />
         <Router>
-          <div>
-            <Route
-              path="/"
-              component={() => (
-                <TrailersContainer
-                  trailerArray={this.state.trailers}
-                ></TrailersContainer>
-              )}
-            ></Route>
-            <Route path="/login" component={CarouselPage}></Route>
-          </div>
+          <Switch>
+            <Route path="/register">Pagina de registro</Route>
+            <Route path="/login" component={Login}></Route>
+            <Route exact path="/" component={Home}></Route>
+          </Switch>
         </Router>
       </div>
     );

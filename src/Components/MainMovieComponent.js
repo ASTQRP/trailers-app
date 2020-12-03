@@ -33,30 +33,45 @@ const CarouselPage = () => {
 
   const cItems = items.map((item) => {
     return (
-      <MDBCarouselItem key={item.id} itemId={item.id}>
-        <MDBView>
-          <img className="d-block w-100" src={item.src} alt={item.altText} />
-          <MDBMask overlay="black-light" />
-        </MDBView>
-        <MDBCarouselCaption>
-          <h3 className="h3-responsive">{item.altText}</h3>
-          <p>{item.caption}</p>
-        </MDBCarouselCaption>
-      </MDBCarouselItem>
+      <div className="carousel-item active" data-interval="10000">
+        <img src={item.src} class="d-block w-100" alt="..."></img>
+      </div>
     );
   });
   return (
-    <MDBContainer>
-      <MDBCarousel
-        activeItem={1}
-        length={3}
-        showControls={true}
-        showIndicators={true}
-        className="z-depth-1 w-100"
+    <div>
+      <div
+        id="carouselExampleInterval"
+        className="carousel slide"
+        data-ride="carousel"
       >
-        <MDBCarouselInner>{cItems}</MDBCarouselInner>
-      </MDBCarousel>
-    </MDBContainer>
+        <div className="carousel-inner">{cItems}</div>
+        <a
+          className="carousel-control-prev"
+          href="#carouselExampleInterval"
+          role="button"
+          data-slide="prev"
+        >
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="sr-only">Previous</span>
+        </a>
+        <a
+          className="carousel-control-next"
+          href="#carouselExampleInterval"
+          role="button"
+          data-slide="next"
+        >
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
   );
 };
 
