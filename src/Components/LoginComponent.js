@@ -29,7 +29,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="w-50 mt-4 shadow-none p-3 mb-5 bg-light rounded">
+      <div className="container w-50 mt-4 shadow-none p-3 mb-5 bg-light rounded">
         <h1> Bienvenido al inicio de sesion </h1>
         <form>
           <div className="form-group">
