@@ -10,10 +10,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 var connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "5GES85RJFFULX",
-  database: "trailersDB",
+  host: "remotemysql.com",
+  user: "zXJeEqJL3u",
+  password: "0hwnP5olLo",
+  database: "zXJeEqJL3u",
 });
 
 app.get("/", (req, res) => {
