@@ -1,22 +1,6 @@
 import React, { Component } from "react";
-import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavItem,
-  MDBNavLink,
-  MDBNavbarToggler,
-  MDBCollapse,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBDropdownItem,
-} from "mdbreact";
 
-import Login from "./LoginComponent";
-import { BrowserRouter as Router } from "react-router-dom";
-
-class NavbarComponent extends Component {
+class NavbarC extends Component {
   state = {
     isOpen: false,
   };
@@ -27,51 +11,54 @@ class NavbarComponent extends Component {
 
   render() {
     return (
-      <Router>
-        <MDBNavbar color="indigo" dark expand="md">
-          <MDBNavbarBrand>
-            <strong className="white-text">TTDb</strong>
-          </MDBNavbarBrand>
-          <MDBNavbarToggler onClick={this.toggleCollapse} />
-          <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
-            <MDBNavbarNav left>
-              <MDBNavItem active>
-                <MDBNavLink to="#!">Inicio</MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink to="#!">Features</MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink to="#!">Pricing</MDBNavLink>
-              </MDBNavItem>
-              <MDBNavItem>
-                <MDBDropdown>
-                  <MDBDropdownToggle nav caret>
-                    <span className="mr-2">Dropdown</span>
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu>
-                    <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                    <MDBDropdownItem href="#!">
-                      Something else here
-                    </MDBDropdownItem>
-                    <MDBDropdownItem href="#!">
-                      Something else here
-                    </MDBDropdownItem>
-                  </MDBDropdownMenu>
-                </MDBDropdown>
-              </MDBNavItem>
-            </MDBNavbarNav>
-            <MDBNavbarNav right>
-              <MDBNavItem>
-                <MDBNavLink to="#"></MDBNavLink>
-              </MDBNavItem>
-            </MDBNavbarNav>
-          </MDBCollapse>
-        </MDBNavbar>
-      </Router>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a className="navbar-brand" href="/">
+            TTDb
+          </a>
+          <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li className="nav-item active">
+              <a className="nav-link" href="/">
+                Home <span className="sr-only">(current)</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/login">
+                Login
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/register">
+                Register
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/add">
+                Add
+              </a>
+            </li>
+          </ul>
+
+          <a href="/login" className="">
+            <button className="btn btn-outline-success my-2 my-sm-0">
+              Login
+            </button>
+          </a>
+        </div>
+      </nav>
     );
   }
 }
 
-export default NavbarComponent;
+export default NavbarC;
