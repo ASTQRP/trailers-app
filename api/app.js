@@ -66,6 +66,34 @@ app.delete("/eleminar/:id", (req, res) => {
   });
 });
 
+app.post("/login", (req, res) => {
+  const { user_name, password } = req.body;
+  const sql = `SELECT * FROM usuario WHERE user = '${user_name}' AND password = '${password}'`;
+  connection.query(sql, (error, result) => {
+    if (error) throw error;
+    result.length > 0
+      ? res.send("Usuario Encontrado")
+      : res.send("Usuario o Contraseña Incorrecto!...");
+  });
+});
+
+app.post("/registrar", (req, res) => {
+  const { user_name, password, rol } = req.body;
+  const sql = `SELECT * FROM usuario WHERE user = '${user_name}' AND password = '${password}'`;
+  connection.query(sql, (error, result) => {
+    if (error) throw error;
+    if (result.length > 0) {
+      res.send("El usuario esta registrado!...");
+    } else {
+      const sqlx = ` INSERT into usuario (user,PASSWORD, rol) VALUES('${user_name}', '${password}', ${rol})`;
+      connection.query(sqlx, (error) => {
+        if (error) throw error;
+        res.send("Usuario registrado correctamente!...");
+      });
+    }
+  });
+});
+
 //Check connect
 
 connection.connect((error) => {

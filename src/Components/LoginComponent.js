@@ -7,7 +7,7 @@ export default function Login() {
 
   const login = () => {
     axios
-      .post("http://localhost:3040/login", {
+      .post("http://localhost:3050/login", {
         user_name: username,
         password: password,
       })
@@ -24,11 +24,11 @@ export default function Login() {
           <div className="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input
-              type="email"
+              type="text"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder="Username"
               onChange={(e) => {
                 setUsername(e.target.value);
               }}
@@ -59,7 +59,13 @@ export default function Login() {
               Check me out
             </label>
           </div>
-          <button type="submit" className="btn btn-primary" onClick={login}>
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={() => {
+              login();
+            }}
+          >
             Submit
           </button>
         </form>
