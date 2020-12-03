@@ -1,34 +1,23 @@
-import React, { Component } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
+import React, { useState } from "react";
+const axios = require("axios").default;
 
-const baseUrl = "http://localhost:3050//login";
+export default function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-class Login extends Component {
-  state = {
-    form: {
-      User: "",
-      clave: "",
-    },
+  const login = () => {
+    axios
+      .post("http://localhost:3040/login", {
+        user_name: username,
+        password: password,
+      })
+      .then((Response) => {
+        console.log(Response);
+      });
   };
 
-  handleChange = async (e) => {
-    await this.setState({
-      form: {
-        ...this.state.form,
-        [e.target.UseName]: e.target.value,
-      },
-    });
-  };
-
-  iniciarseccion = async () => {
-    await await axios.get(baseUrl, {
-      params: { User: this.state.form.User, clave: this.state.form.clave },
-    });
-  };
-
-  render() {
-    return (
+  return (
+    <div>
       <div className="container w-50 mt-4 shadow-none p-3 mb-5 bg-light rounded">
         <h1> Bienvenido al inicio de sesion </h1>
         <form>
@@ -40,6 +29,9 @@ class Login extends Component {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
             />
             <small id="emailHelp" className="form-text text-muted">
               We'll never share your email with anyone else.
@@ -52,6 +44,9 @@ class Login extends Component {
               className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
           </div>
           <div className="form-check">
@@ -64,13 +59,11 @@ class Login extends Component {
               Check me out
             </label>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" onClick={login}>
             Submit
           </button>
         </form>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default Login;

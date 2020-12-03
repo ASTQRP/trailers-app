@@ -3,18 +3,15 @@ const mysql = require("mysql");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
+const { localDB } = require("../src/Config/database.config");
+
 const PORT = process.env.PORT || 3050;
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-var connection = mysql.createConnection({
-  host: "remotemysql.com",
-  user: "zXJeEqJL3u",
-  password: "0hwnP5olLo",
-  database: "zXJeEqJL3u",
-});
+var connection = mysql.createConnection(localDB);
 
 app.get("/", (req, res) => {
   const sql = "SELECT * FROM trailers";

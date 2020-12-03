@@ -3,6 +3,7 @@ import Home from "./Components/HomeComponent";
 import Login from "./Components/LoginComponent";
 import NavbarC from "./Components/NavbarComponent";
 import AddTrailer from "./Components/AddTrailerComponent";
+import Registry from "./Components/RegistryComponent";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 const axios = require("axios").default;
 
@@ -24,7 +25,7 @@ class App extends Component {
         <NavbarC />
         <Router>
           <Switch>
-            <Route path="/register">Pagina de registro</Route>
+            <Route path="/register" component={Registry}></Route>
             <Route path="/login" component={Login}></Route>
             <Route path="/add" component={AddTrailer}></Route>
             <Route exact path="/" component={Home}></Route>
