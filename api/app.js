@@ -1,14 +1,11 @@
 const express = require("express");
 const mysql = require("mysql");
-
 const bodyParser = require("body-parser");
-
+const cors = require("cors");
 const PORT = process.env.PORT || 3050;
-
 const app = express();
-
 app.use(bodyParser.json());
-
+app.use(cors());
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -17,7 +14,7 @@ var connection = mysql.createConnection({
 });
 
 app.get("/", (req, res) => {
-  const sql = "SELECT * FROM trailers";
+  const sql = "select * from trailers order by id desc ";
   connection.query(sql, (error, results) => {
     if (error) throw error;
     results.length > 0 ? res.json(results) : res.send("Not result");
@@ -66,6 +63,19 @@ app.delete("/eleminar/:id", (req, res) => {
   connection.query(sql, (error) => {
     if (error) throw error;
     res.send("Trailer elimando!");
+  });
+});
+
+//Datos de login
+
+app.post("/login", (req, res) => {
+  const { user_name, password } = req.body;
+  const sql = `SELECT * FROM usuario WHERE user_name = '${user_name}' AND PASSWORD = '${password}'`;
+  connection.query(sql, (error, result) => {
+    if (error) throw error;
+    result.length > 0
+      ? res.send("Usuario Encontrado")
+      : res.send("Usuario o Contraseña Incorrecto!...");
   });
 });
 

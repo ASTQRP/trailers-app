@@ -14,17 +14,13 @@ export default function TrailersContainer(props) {
   console.log(props.trailerArray);
   const cards = props.trailerArray.map((trailer) => {
     return (
-      <MDBCol className="p-2">
-        <MDBCard style={{ width: "22rem" }}>
-          <MDBCardImage
-            className="img-fluid"
-            src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-            waves
-          />
+      <MDBCol className="pt-5">
+        <MDBCard style={{ width: 300, height: 400 }}>
+          <MDBCardImage className="img-fluid" src={trailer.thumbnail} waves />
           <MDBCardBody>
-            <MDBCardTitle>{`ID: ${trailer.id}`}</MDBCardTitle>
-            <MDBCardText>{trailer.description}</MDBCardText>
-            <MDBBtn href="#">MDBBtn</MDBBtn>
+            <MDBCardTitle>{trailer.titulo}</MDBCardTitle>
+            <MDBCardText className="d-flex ">{trailer.descripcion}</MDBCardText>
+            <MDBBtn href="#">Ver</MDBBtn>
           </MDBCardBody>
         </MDBCard>
       </MDBCol>
@@ -33,7 +29,7 @@ export default function TrailersContainer(props) {
 
   return (
     <MDBContainer>
-      <div className="d-flex pt-5 flex-wrap flex-row justify-content-around">
+      <div className="d-flex pt-5 flex-wrap flex-row justify-content-around ">
         {cards}
       </div>{" "}
     </MDBContainer>
