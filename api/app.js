@@ -3,7 +3,7 @@ const mysql = require("mysql");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const { jacobLocalDB } = require("../src/Config/database.config");
+const { hostedDB } = require("../src/Config/database.config");
 
 const PORT = process.env.PORT || 3050;
 
@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-var connection = mysql.createConnection(jacobLocalDB);
+var connection = mysql.createConnection(hostedDB);
 
 app.get("/", (req, res) => {
   const sql = "SELECT * FROM trailers";

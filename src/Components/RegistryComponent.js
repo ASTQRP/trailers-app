@@ -3,20 +3,20 @@ import React, { Component } from "react";
 class Registry extends Component {
   render() {
     return (
-      <div className="container w-50 mt-4 shadow-none p-3 mb-5 bg-light rounded">
-        <h1> Bienvenido Registrate </h1>
+      <div className="container w-50 mt-5 shadow-none p-3 mb-5 bg-light rounded">
+        <h1 className="text-center"> Bienvenido Registrate </h1>
         <form>
           <div className="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <label for="exampleInputEmail1">Usuario</label>
             <input
               type="email"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder="Ingresa el nombre de usuario"
             />
             <small id="emailHelp" className="form-text text-muted">
-              We'll never share your email with anyone else.
+            Nunca compartiremos su nombre de usuario con nadie más.
             </small>
           </div>
           <div className="form-group">
@@ -28,30 +28,10 @@ class Registry extends Component {
               placeholder="Password"
             />
           </div>
-          <div className="custom-control custom-radio">
-            <input
-              type="radio"
-              id="customRadio1"
-              name="customRadio"
-              className="custom-control-input"
-            />
-            <label className="custom-control-label" htmlFor="customRadio1">
-              Usuario
-            </label>
-          </div>
-          <div className="custom-control custom-radio">
-            <input
-              type="radio"
-              id="customRadio2"
-              name="customRadio"
-              className="custom-control-input"
-            />
-            <label className="custom-control-label" htmlFor="customRadio2">
-              Administrador
-            </label>
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Submit
+    
+          <button 
+          className=" btn btn-primary btn-block">
+            Registrar
           </button>
         </form>
       </div>
