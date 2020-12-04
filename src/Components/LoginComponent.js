@@ -16,13 +16,16 @@ export default function Login() {
       });
   };
 
+  let handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
-      <div className="container w-50 mt-4 shadow-none p-3 mb-5 bg-light rounded">
-        <h1> Bienvenido al inicio de sesion </h1>
-        <form>
+      <div className="container w-50 mt-4 shadow-none p-3 mb-5 bg-light text-center rounded">
+        <h1> Iniciar sesion </h1>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label for="exampleInputEmail1">Email address</label>
             <input
               type="text"
               className="form-control"
@@ -33,12 +36,8 @@ export default function Login() {
                 setUsername(e.target.value);
               }}
             />
-            <small id="emailHelp" className="form-text text-muted">
-              We'll never share your email with anyone else.
-            </small>
           </div>
           <div className="form-group">
-            <label for="exampleInputPassword1">Password</label>
             <input
               type="password"
               className="form-control"
@@ -49,24 +48,9 @@ export default function Login() {
               }}
             />
           </div>
-          <div className="form-check">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
-            />
-            <label className="form-check-label" for="exampleCheck1">
-              Check me out
-            </label>
-          </div>
-          <button
-            type="submit"
-            className="btn btn-primary"
-            onClick={() => {
-              login();
-            }}
-          >
-            Submit
+
+          <button className="btn btn-primary" onClick={login}>
+            Login
           </button>
         </form>
       </div>

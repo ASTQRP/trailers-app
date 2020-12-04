@@ -4,7 +4,7 @@ import Login from "./Components/LoginComponent";
 import NavbarC from "./Components/NavbarComponent";
 import AddTrailer from "./Components/AddTrailerComponent";
 import Registry from "./Components/RegistryComponent";
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const axios = require("axios").default;
 
 class App extends Component {

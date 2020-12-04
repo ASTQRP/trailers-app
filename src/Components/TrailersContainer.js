@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ModalVideo from "react-modal-video";
 const axios = require("axios").default;
 
 export default function TrailersContainer() {
   const [trailers, setTrailers] = useState([]);
-  const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
     axios.get("http://localhost:3050").then((res) => setTrailers(res.data));

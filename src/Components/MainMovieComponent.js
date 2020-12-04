@@ -1,31 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+const axios = require("axios").default;
 
 const CarouselPage = () => {
-  const items = [
-    {
-      id: 1,
-      altText: "mOVIE 1",
-      caption: "Slide 1",
-      src: "http://i3.ytimg.com/vi/POfrSsYx8Lo/maxresdefault.jpg",
-    },
-    {
-      id: 2,
-      altText: "Slide 2",
-      caption: "Slide 2",
-      src: "http://i3.ytimg.com/vi/POfrSsYx8Lo/maxresdefault.jpg",
-    },
-    {
-      id: 3,
-      altText: "Slide 3",
-      caption: "Slide 3",
-      src: "http://i3.ytimg.com/vi/POfrSsYx8Lo/maxresdefault.jpg",
-    },
-  ];
+  const [Thumbnails, setThumbnails] = useState([]);
 
-  const cItems = items.map((item) => {
+  const cItems = Thumbnails.map((item) => {
+    axios.get("http://localhost:3050/").then((res) => {
+      setThumbnails(res.data);
+    });
     return (
       <div className="carousel-item active" data-interval="10000">
-        <img src={item.src} class="d-block w-100" alt="..."></img>
+        <img src={item.thumbnail} class="d-block w-100" alt="..."></img>
       </div>
     );
   });
