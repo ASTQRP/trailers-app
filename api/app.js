@@ -23,7 +23,6 @@ app.get("/", (req, res) => {
 
 app.get("/trailer/:id", (req, res) => {
   const { id } = req.params;
-  const sql = `SELECT * FROM trailers WHERE id = ${id}`;
   connection.query(sql, (error, result) => {
     if (error) throw error;
     result.length > 0 ? res.json(result) : res.send("Not result");
