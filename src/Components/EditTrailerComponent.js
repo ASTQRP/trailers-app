@@ -20,7 +20,7 @@ export default class EditTrailerComponent extends Component {
           year: res.data[0].year,
           descripcion: res.data[0].descripcion,
           url: res.data[0].url,
-          preview_url: res.data[0].thumbnail,
+          thumbnail: res.data[0].thumbnail,
         });
 
         console.log(this.state);
