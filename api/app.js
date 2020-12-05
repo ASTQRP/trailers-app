@@ -52,7 +52,7 @@ app.post("/update/:id", (req, res) => {
   console.log(req.body);
   const { id } = req.params;
   const { titulo, year, preview_url, descripcion, url } = req.body;
-  const sql = `UPDATE trailers SET titulo = '${titulo}', year='${year}', thumbnail='${preview_url}', descripcion='${descripcion}', url='${url}'  WHERE id = ${id}`;
+  const sql = `UPDATE trailers SET titulo = '${titulo}', year='${year}', preview_url='${preview_url}', descripcion='${descripcion}', url='${url}'  WHERE id = ${id}`;
   connection.query(sql, (error) => {
     if (error) throw error;
     res.send("Trailer Modificado!");
