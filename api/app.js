@@ -3,18 +3,20 @@ const mysql = require("mysql");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const { hostedDB } = require("../src/Config/database.config");
+const { jacobLocalDB } = require("../src/Config/database.config");
+const morgan = require("morgan");
 
 const PORT = process.env.PORT || 3050;
 
 const app = express();
 app.use(cors());
+app.use(morgan("dev"));
 app.use(bodyParser.json());
 
-var connection = mysql.createConnection(hostedDB);
+var connection = mysql.createConnection(jacobLocalDB);
 
 app.get("/", (req, res) => {
-  const sql = "SELECT * FROM trailers";
+  const sql = "SELECT * FROM trailers ORDER by id desc";
   connection.query(sql, (error, results) => {
     if (error) throw error;
     results.length > 0 ? res.json(results) : res.send("Not result");
@@ -23,6 +25,7 @@ app.get("/", (req, res) => {
 
 app.get("/trailer/:id", (req, res) => {
   const { id } = req.params;
+  const sql = `SELECT * FROM trailers WHERE id = ${id}`;
   connection.query(sql, (error, result) => {
     if (error) throw error;
     result.length > 0 ? res.json(result) : res.send("Not result");
@@ -34,7 +37,7 @@ app.post("/add", (req, res) => {
   const customerObj = {
     titulo: req.body.titulo,
     year: req.body.year,
-    preview_url: req.body.preview_url,
+    thumbnail: req.body.preview_url,
     descripcion: req.body.descripcion,
     url: req.body.url,
   };
@@ -45,10 +48,10 @@ app.post("/add", (req, res) => {
   });
 });
 
-app.put("/update/:id", (req, res) => {
+app.post("/update/:id", (req, res) => {
   const { id } = req.params;
   const { titulo, year, preview_url, descripcion, url } = req.body;
-  const sql = `UPDATE trailers SET titulo = '${titulo}', year='${year}', preview_url='${preview_url}', descripcion='${descripcion}', url='${url}'  WHERE id = ${id}`;
+  const sql = `UPDATE trailers SET titulo = '${titulo}', year='${year}', thumbnail='${preview_url}', descripcion='${descripcion}', url='${url}'  WHERE id = ${id}`;
   connection.query(sql, (error) => {
     if (error) throw error;
     res.send("Trailer Modificado!");

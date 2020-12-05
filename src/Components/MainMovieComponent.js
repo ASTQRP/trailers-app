@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 const axios = require("axios").default;
 
 const CarouselPage = () => {
   const [Thumbnails, setThumbnails] = useState([]);
-
-  const cItems = Thumbnails.map((item) => {
+  useEffect(() => {
     axios.get("http://localhost:3050/").then((res) => {
       setThumbnails(res.data);
     });
+  });
+
+  const cItems = Thumbnails.map((item) => {
     return (
       <div className="carousel-item active" data-interval="10000">
         <img src={item.thumbnail} class="d-block w-100" alt="..."></img>

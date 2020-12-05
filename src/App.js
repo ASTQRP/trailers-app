@@ -3,7 +3,9 @@ import Home from "./Components/HomeComponent";
 import Login from "./Components/LoginComponent";
 import NavbarC from "./Components/NavbarComponent";
 import AddTrailerComponent from "./Components/AddTrailerComponent";
+import EditTrailerComponent from "./Components/EditTrailerComponent";
 import Registry from "./Components/RegistryComponent";
+import TrailerListComponent from "./Components/TrailerListComponent";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const axios = require("axios").default;
 
@@ -27,7 +29,9 @@ class App extends Component {
           <Switch>
             <Route path="/register" component={Registry}></Route>
             <Route path="/login" component={Login}></Route>
+            <Route path="/list" component={TrailerListComponent}></Route>
             <Route path="/add" component={AddTrailerComponent}></Route>
+            <Route path="/edit/:id" component={EditTrailerComponent}></Route>
             <Route exact path="/" component={Home}></Route>
           </Switch>
         </Router>

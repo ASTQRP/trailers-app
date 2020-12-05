@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 const axios = require("axios").default;
 
-export default function AddTrailerComponent() {
+export default function EditTrailerComponent() {
   const [titulo, setTitulo] = useState("");
   const [year, setYear] = useState("");
   const [descripcion, setDescripcion] = useState("");
@@ -9,35 +9,21 @@ export default function AddTrailerComponent() {
   const [thumbnail, setThumbnail] = useState("");
   let handleSubmit = (e) => {
     e.preventDefault();
-    registrarTrailer();
+    editTrailer();
   };
-  const showMessage = () => {
-    return (
-      <div
-        className="alert alert-warning alert-dismissible fade show"
-        role="alert"
-      >
-        <strong>Holy guacamole!</strong> You should check in on some of those
-        fields below.
-        <button
-          type="button"
-          className="close"
-          data-dismiss="alert"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-    );
+
+  const getTrailerData = () => {
+    console.log;
   };
-  const registrarTrailer = () => {
+
+  const editTrailer = () => {
     axios
-      .post("http://localhost:3050/add", {
+      .post("http://localhost:3050/update/:id", {
         titulo: titulo,
         year: year,
         descripcion: descripcion,
         url: url,
-        thumbnail: thumbnail,
+        preview_url: thumbnail,
       })
       .then(() => {
         showMessage();
