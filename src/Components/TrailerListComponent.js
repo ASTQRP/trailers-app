@@ -5,11 +5,14 @@ const axios = require("axios").default;
 export default function TrailerListComponent() {
   const [Trailers, setTrailers] = useState([]);
 
+
   useEffect(() => {
     axios.get("http://localhost:3050/").then((res) => {
       setTrailers(res.data);
     });
   });
+
+ 
 
   const trailers = Trailers.map((trailerRow) => {
     return (
@@ -31,9 +34,7 @@ export default function TrailerListComponent() {
                 type="button"
                 name="options"
                 id="option3"
-                onClick={() => {
-                  console.log(trailerRow.id);
-                }}
+                
               >
                 Edit
               </button>
@@ -45,8 +46,10 @@ export default function TrailerListComponent() {
               name="options"
               id="option3"
               onClick={() => {
-                console.log("Delete");
-              }}
+                axios.delete(`http://localhost:3050/eliminar/${trailerRow.id}`)
+               .catch((res)=> {console.log(res)})
+               .then((res)=>{console.log(res)});
+            }}
             >
               Delete
             </button>

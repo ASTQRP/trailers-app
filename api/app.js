@@ -3,7 +3,7 @@ const mysql = require("mysql");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const { jacobLocalDB } = require("../src/Config/database.config");
+const { hostedDB } = require("../src/Config/database.config");
 const morgan = require("morgan");
 
 const PORT = process.env.PORT || 3050;
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 
-var connection = mysql.createConnection(jacobLocalDB);
+var connection = mysql.createConnection(hostedDB);
 
 app.get("/", (req, res) => {
   const sql = "SELECT * FROM trailers ORDER by id desc";
@@ -49,6 +49,7 @@ app.post("/add", (req, res) => {
 });
 
 app.post("/update/:id", (req, res) => {
+  console.log(req.body);
   const { id } = req.params;
   const { titulo, year, preview_url, descripcion, url } = req.body;
   const sql = `UPDATE trailers SET titulo = '${titulo}', year='${year}', thumbnail='${preview_url}', descripcion='${descripcion}', url='${url}'  WHERE id = ${id}`;
@@ -58,7 +59,7 @@ app.post("/update/:id", (req, res) => {
   });
 });
 
-app.delete("/eleminar/:id", (req, res) => {
+app.delete("/eliminar/:id", (req, res) => {
   const { id } = req.params;
   const sql = `DELETE FROM trailers WHERE id = ${id}`;
 
