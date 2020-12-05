@@ -23,7 +23,7 @@ export default class EditTrailerComponent extends Component {
           preview_url: res.data[0].thumbnail,
         });
 
-        console.log(this.state)
+        console.log(this.state);
       });
   }
   handleSubmit(e) {
@@ -36,29 +36,32 @@ export default class EditTrailerComponent extends Component {
   }
 
   editTrailer() {
-    axios.post(`http://localhost:3050/update/${this.state.trailer}`, {
-          id: this.state.id,
-          titulo:this.state.titulo,
-          year: this.state.year,
-          descripcion: this.state.descripcion,
-          url: this.state.url,
-          preview_url: this.state.thumbnail
-      }).then((response) => {
+    axios
+      .post(`http://localhost:3050/update/${this.state.trailer}`, {
+        id: this.state.id,
+        titulo: this.state.titulo,
+        year: this.state.year,
+        descripcion: this.state.descripcion,
+        url: this.state.url,
+        preview_url: this.state.thumbnail,
+      })
+      .then((response) => {
         console.log(response);
       })
-      .catch( (error)  => {
+      .catch((error) => {
         console.log(error);
       });
   }
 
   render() {
     return (
-      <div
-        className="container w-50 mt-4 shadow-none p-3 mb-5 bg-light rounded"
-   
-      >
-        <h1 className="text-center">Editar Nuevo Tralier</h1>
-        <form onSubmit= {() => {this.editTrailer()}}>
+      <div className="container w-50 mt-4 shadow-none p-3 mb-5 bg-light rounded">
+        <h1 className="text-center">Editar Tralier</h1>
+        <form
+          onSubmit={() => {
+            this.editTrailer();
+          }}
+        >
           <div className="form-group">
             <label for="titulo">Titulo</label>
             <input
@@ -93,7 +96,6 @@ export default class EditTrailerComponent extends Component {
             <label for="descripcion">Descripcion: </label>
             <textarea
               className="form-control"
-              
               value={this.state.descripcion}
               placeholder="Escriba la descripcion"
               onChange={(e) => {
@@ -109,8 +111,7 @@ export default class EditTrailerComponent extends Component {
               type="text"
               className="form-control"
               id="url"
-              
-              value={this.state.url }
+              value={this.state.url}
               placeholder="Escriba al URL..."
               onChange={(e) => {
                 this.setState({
@@ -125,8 +126,7 @@ export default class EditTrailerComponent extends Component {
               type="text"
               className="form-control"
               id="thumbnail"
-              
-              value={this.state.preview_url }
+              value={this.state.preview_url}
               onChange={(e) => {
                 this.setState({
                   preview_url: e.target.value,
