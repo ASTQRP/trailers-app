@@ -37,7 +37,7 @@ app.post("/add", (req, res) => {
   const customerObj = {
     titulo: req.body.titulo,
     year: req.body.year,
-    thumbnail: req.body.preview_url,
+    preview_url: req.body.preview_url,
     descripcion: req.body.descripcion,
     url: req.body.url,
   };
