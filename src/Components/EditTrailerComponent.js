@@ -126,10 +126,10 @@ export default class EditTrailerComponent extends Component {
               type="text"
               className="form-control"
               id="thumbnail"
-              value={this.state.preview_url}
+              value={this.state.thumbnail}
               onChange={(e) => {
                 this.setState({
-                  preview_url: e.target.value,
+                  thumbnail: e.target.value,
                 });
               }}
               placeholder="Escriba al Thumbnail..."
