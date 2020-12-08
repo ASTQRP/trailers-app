@@ -33,13 +33,14 @@ app.get("/trailer/:id", (req, res) => {
 });
 
 app.post("/add", (req, res) => {
+  console.log(req.body);
   const sql = "INSERT INTO trailers SET ?";
   const customerObj = {
     titulo: req.body.titulo,
     year: req.body.year,
-    preview_url: req.body.preview_url,
     descripcion: req.body.descripcion,
     url: req.body.url,
+    preview_url: req.body.preview_url,
   };
 
   connection.query(sql, customerObj, (error) => {

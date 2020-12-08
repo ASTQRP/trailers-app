@@ -11,37 +11,14 @@ export default function AddTrailerComponent() {
     e.preventDefault();
     registrarTrailer();
   };
-  const showMessage = () => {
-    return (
-      <div
-        className="alert alert-warning alert-dismissible fade show"
-        role="alert"
-      >
-        <strong>Holy guacamole!</strong> You should check in on some of those
-        fields below.
-        <button
-          type="button"
-          className="close"
-          data-dismiss="alert"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-    );
-  };
   const registrarTrailer = () => {
-    axios
-      .post("http://localhost:3050/add", {
-        titulo: titulo,
-        year: year,
-        descripcion: descripcion,
-        url: url,
-        thumbnail: thumbnail,
-      })
-      .then(() => {
-        showMessage();
-      });
+    axios.post("http://localhost:3050/add", {
+      titulo: titulo,
+      year: year,
+      descripcion: descripcion,
+      url: url,
+      preview_url: thumbnail,
+    });
   };
 
   return (
